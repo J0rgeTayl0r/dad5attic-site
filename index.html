@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dad5Attic — Treasures from the Attic</title>
+<meta name="description" content="Dad5Attic: curated secondhand and new finds — clothing, tools, electronics, collectibles. Direct from the attic, off eBay.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏺</text></svg>">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <span class="brand-mark">🏺</span>
+    <div>
+      <h1>Dad<span class="amp">5</span>Attic</h1>
+      <p class="tagline">Treasures from the attic. Off eBay, direct from Dad.</p>
+    </div>
+  </div>
+  <button id="cartBtn" class="cart-btn" aria-label="Open cart">
+    🛒 <span id="cartCount" class="cart-count">0</span>
+  </button>
+</header>
+
+<div class="notice">Found us in a box? Everything here is one-of-a-kind — when it's gone, it's gone.</div>
+
+<main>
+  <div class="toolbar">
+    <input id="search" type="search" placeholder="Search 333 finds… (nike, magnum, diecast, wool)" autocomplete="off">
+    <select id="sort" aria-label="Sort">
+      <option value="newest">Newest listed</option>
+      <option value="lo">Price: low → high</option>
+      <option value="hi">Price: high → low</option>
+    </select>
+    <select id="cond" aria-label="Condition">
+      <option value="">Any condition</option>
+      <option value="Brand New">Brand New</option>
+      <option value="Pre-Owned">Pre-Owned</option>
+    </select>
+  </div>
+  <nav id="chips" class="chips"></nav>
+  <p id="resultsInfo" class="results-info"></p>
+  <div id="grid" class="grid"></div>
+  <p id="more" class="more-wrap"><button id="moreBtn" class="more-btn">Load more</button></p>
+</main>
+
+<div id="overlay" class="overlay hidden"></div>
+
+<aside id="drawer" class="drawer hidden">
+  <div class="drawer-head"><h2>Your cart</h2><button id="closeCart" class="x" aria-label="Close">✕</button></div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="drawer-foot">
+    <div class="cart-total-row"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+    <p class="fine">Flat-rate shipping added after order. Pay by Zelle, Venmo, or cash on pickup. Jarvis (Dad's AI) will confirm your order by email.</p>
+    <button id="checkoutBtn" class="buy">Place order by email</button>
+  </div>
+</aside>
+
+<div id="modal" class="modal hidden">
+  <button id="modalClose" class="x modal-x" aria-label="Close">✕</button>
+  <div class="modal-body">
+    <img id="mImg" alt="">
+    <div class="modal-info">
+      <h3 id="mTitle"></h3>
+      <p class="modal-meta"><span id="mPrice" class="price"></span><span id="mCond" class="badge"></span><span id="mShip" class="ship"></span></p>
+      <p class="modal-blurb">One-of-a-kind item, straight from Dad5Attic. Ships within 1 business day.</p>
+      <div class="modal-actions">
+        <button id="mAdd" class="buy">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p><strong>Dad5Attic</strong> · Middletown, NY · direct sales, no marketplace</p>
+  <p class="fine">Questions or want to pay a different way? Email <a href="mailto:lordvoldemortsjarvis@gmail.com">lordvoldemortsjarvis@gmail.com</a></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
