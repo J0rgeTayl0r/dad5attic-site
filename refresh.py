@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Scrape dad5attic eBay store listings via running Chrome CDP :9222."""
-import json, re, sys, time, urllib.parse, urllib.request
+import json, re, subprocess, sys, time, urllib.parse, urllib.request
 import websocket
 
 CDP = "http://127.0.0.1:9222"
@@ -89,6 +89,12 @@ def main():
     with open("/srv/jarvis-data/apps/dad5attic/items.json", "w") as f:
         json.dump(clean, f, indent=1)
     print(f"TOTAL unique: {len(clean)}")
+    # publish to GitHub Pages
+    d = "/srv/jarvis-data/apps/dad5attic"
+    subprocess.run(["git", "-C", d, "add", "items.json", "items_raw.json"], check=False)
+    subprocess.run(["git", "-C", d, "-c", "user.name=jarvis", "-c", "user.email=lordvoldemortsjarvis@gmail.com",
+                    "commit", "-m", f"refresh listings ({len(clean)} items)"], check=False)
+    subprocess.run(["git", "-C", d, "push"], check=False)
 
 if __name__ == "__main__":
     main()
